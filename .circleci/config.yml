@@ -9,7 +9,7 @@ jobs:
     # Use the same Docker base as the project
       - image: python:3.7.3-stretch
 
-    working_directory: /home/ubuntu/environment/Project_4_Microservices/Lesson-2-Docker-format-containers/class-demos
+    working_directory: /home/ubuntu/environment/Docker_project
 
     steps:
       - checkout
@@ -28,8 +28,7 @@ jobs:
             . venv/bin/activate
             make install
             # Install hadolint
-            wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
-                chmod +x /bin/hadolint
+            sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&  sudo chmod +x /bin/hadolint
 
       - save_cache:
           paths:
@@ -42,4 +41,3 @@ jobs:
           command: |
             . venv/bin/activate
             make lint           
-
